@@ -1,0 +1,3 @@
+## Скопируй в local.properties и укажи путь к Android SDK.
+## Обычно: macOS — ~/Library/Android/sdk
+sdk.dir=/Users/YOU/Library/Android/sdk

@@ -1,0 +1,46 @@
+# Локальная машина: SDK и JDK (не коммитить)
+local.properties
+gradle.properties
+
+# Gradle
+.gradle/
+**/build/
+!**/src/**/build/
+
+# Android / IDE
+*.iml
+.idea/
+.cursor/
+.cxx/
+.externalNativeBuild/
+captures/
+.navigation/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Сборка / артефакты
+*.apk
+*.aab
+*.ap_
+*.dex
+*.class
+
+# Подпись (никогда в git)
+*.jks
+*.keystore
+keystore.properties
+
+# Логи
+*.log
+
+# Kotlin
+.kotlin/
+
+# Python (скрипты иконок)
+__pycache__/
+*.py[cod]
+.Python
+venv/
+.venv/
