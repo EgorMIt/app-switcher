@@ -1,19 +1,19 @@
 plugins {
     id("com.android.application")
-    id("org.jetbrains.kotlin.android")
-}
-
-kotlin {
-    jvmToolchain(21)
 }
 
 android {
     namespace = "com.egormit.hdmiswitch"
-    compileSdk = 34
+    buildToolsVersion = "37.0.0"
+    compileSdk {
+        version = release(37)
+    }
 
     defaultConfig {
         minSdk = 24
-        targetSdk = 34
+        targetSdk {
+            version = release(37)
+        }
         versionCode = 4
         versionName = "1.3"
     }
@@ -45,17 +45,9 @@ android {
         targetCompatibility = JavaVersion.VERSION_21
     }
 
-    kotlinOptions {
-        jvmTarget = "21"
-    }
-
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
-}
-
-dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-stdlib")
 }

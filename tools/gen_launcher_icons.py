@@ -14,7 +14,8 @@ from pathlib import Path
 from PIL import Image, ImageDraw
 
 ROOT = Path(__file__).resolve().parents[1]
-RES = ROOT / "app" / "src" / "main" / "res"
+APPLETV_RES = ROOT / "app" / "src" / "appletv" / "res"
+PS5_RES = ROOT / "app" / "src" / "ps5" / "res"
 ICONS = ROOT / "tools" / "icons"
 
 SVG_PS5 = ICONS / "icons8-playstation.svg"
@@ -115,16 +116,32 @@ def main() -> None:
         )
 
     for folder, px in DENSITIES.items():
-        d = RES / folder
-        d.mkdir(parents=True, exist_ok=True)
-        icon_ps5(px).save(d / "ic_launcher_ps5.png", format="PNG", optimize=True)
-        icon_appletv(px).save(d / "ic_launcher_appletv.png", format="PNG", optimize=True)
+        ps5_dir = PS5_RES / folder
+        appletv_dir = APPLETV_RES / folder
+        ps5_dir.mkdir(parents=True, exist_ok=True)
+        appletv_dir.mkdir(parents=True, exist_ok=True)
+        icon_ps5(px).save(ps5_dir / "ic_launcher_ps5.png", format="PNG", optimize=True)
+        icon_appletv(px).save(
+            appletv_dir / "ic_launcher_appletv.png",
+            format="PNG",
+            optimize=True,
+        )
 
-    nodpi = RES / "drawable-nodpi"
-    nodpi.mkdir(parents=True, exist_ok=True)
-    banner_ps5(320, 180).save(nodpi / "tv_banner_ps5.png", format="PNG", optimize=True)
-    banner_appletv(320, 180).save(nodpi / "tv_banner_appletv.png", format="PNG", optimize=True)
-    print("OK:", RES)
+    ps5_nodpi = PS5_RES / "drawable-nodpi"
+    appletv_nodpi = APPLETV_RES / "drawable-nodpi"
+    ps5_nodpi.mkdir(parents=True, exist_ok=True)
+    appletv_nodpi.mkdir(parents=True, exist_ok=True)
+    banner_ps5(320, 180).save(
+        ps5_nodpi / "tv_banner_ps5.png",
+        format="PNG",
+        optimize=True,
+    )
+    banner_appletv(320, 180).save(
+        appletv_nodpi / "tv_banner_appletv.png",
+        format="PNG",
+        optimize=True,
+    )
+    print("OK:", PS5_RES, APPLETV_RES)
 
 
 if __name__ == "__main__":

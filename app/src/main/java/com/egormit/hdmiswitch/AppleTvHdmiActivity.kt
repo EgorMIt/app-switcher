@@ -1,6 +1,8 @@
 package com.egormit.hdmiswitch
 
 class AppleTvHdmiActivity : HdmiSwitchActivity() {
-    override val passthroughPath: String
-        get() = "com.mediatek.tis%2F.HdmiInputService%2FHDMI300008"
+    override val inputLabelAliases: List<String>
+        get() = listOf(
+            "Apple TV",
+        )
 }

@@ -7,6 +7,7 @@ org.gradle.jvmargs=-Xmx2048m -Dfile.encoding=UTF-8
 android.useAndroidX=true
 kotlin.code.style=official
 android.nonTransitiveRClass=true
+org.gradle.configuration-cache=true
 
-# Раскомментируй и укажи свой JDK 17/21 (или задай JAVA_HOME вместо этой строки):
+# Раскомментируй и укажи свой JDK 21 (или задай JAVA_HOME вместо этой строки):
 # org.gradle.java.home=/path/to/jdk-21/Contents/Home

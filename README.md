@@ -20,7 +20,7 @@
    cp gradle.properties.example gradle.properties
    ```
 
-   Раскомментируй и пропиши `org.gradle.java.home` для JDK **17 или 21**, либо выставь `JAVA_HOME` и убери эту строку.
+   Раскомментируй и пропиши `org.gradle.java.home` для JDK **21**, либо выставь `JAVA_HOME` и убери эту строку.
 
 2. **Android SDK:** скопируй `local.properties.example` → `local.properties`, укажи `sdk.dir`.
 
@@ -46,8 +46,9 @@ adb install -r app/build/outputs/apk/appletv/debug/app-appletv-debug.apk
 
 ## Требования
 
-- Android SDK / Platform 34 (`local.properties`).
-- JDK **17 или 21** (не 25 — см. AGP 8.x).
+- Android SDK Platform **37.0**, Build Tools **37.0.0**, Platform Tools **37.0.0** (`local.properties`).
+- Gradle **9.5.1**, Android Gradle Plugin **9.2.1**.
+- JDK **21** для локальной сборки.
 
 ## Button Mapper
 
@@ -55,7 +56,9 @@ adb install -r app/build/outputs/apk/appletv/debug/app-appletv-debug.apk
 
 ## Свой HDMI
 
-Поменяй `passthroughPath` в `Ps5HdmiActivity.kt` / `AppleTvHdmiActivity.kt` (см. `adb shell dumpsys tv_input`).
+Приложения не привязаны к номеру HDMI-порта: они ищут вход по названию из `TvInputManager`.
+Если устройство переименовано на ТВ, обнови `inputLabelAliases` в `Ps5HdmiActivity.kt` / `AppleTvHdmiActivity.kt`.
+Список доступных входов можно посмотреть через `adb shell dumpsys tv_input` или в логах приложения.
 
 ## Иконки (SVG → PNG)
 
