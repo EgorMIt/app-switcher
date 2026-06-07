@@ -14,8 +14,8 @@ android {
         targetSdk {
             version = release(37)
         }
-        versionCode = 4
-        versionName = "1.3"
+        versionCode = 18
+        versionName = "1.17"
     }
 
     flavorDimensions += "target"
